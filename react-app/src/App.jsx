@@ -3,8 +3,7 @@ import { Header } from './components/Header';
 import { UsersList } from './components/UsersList';
 import { Editor } from './components/Editor';
 import { useWebSocket } from './hooks/useWebSocket';
-
-const WEBSOCKET_URL = 'ws://localhost:8080';
+import config from './config';
 
 function App() {
   const [content, setContent] = useState('');
@@ -127,7 +126,7 @@ function App() {
   }, [currentUserId, cursors]);
 
   const { connectionState, sendMessage, reconnect } = useWebSocket({
-    url: WEBSOCKET_URL,
+    url: config.wsUrl,
     onMessage: handleWebSocketMessage,
   });
 
