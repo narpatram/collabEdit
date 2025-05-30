@@ -304,7 +304,7 @@ function broadcastToAll(message, excludeClientId = null) {
 }
 
 const PORT = process.env.PORT || 8080;
-const HOST = 'localhost';
+const HOST = process.env.HOST || '0.0.0.0';
 
 // Handle server errors
 server.on('error', (error) => {
